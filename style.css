@@ -1,0 +1,734 @@
+/* =======================================
+   FOR JANAT ❤️
+   Version 1.0
+======================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Cairo',sans-serif;
+
+    overflow:hidden;
+
+    width:100vw;
+    height:100vh;
+
+    background:
+    radial-gradient(circle at top,#31205f 0%,#12051f 35%,#050510 70%,#000 100%);
+
+    color:white;
+
+}
+
+/* =====================
+   SKY
+===================== */
+
+#sky{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    z-index:1;
+
+}
+
+/* =====================
+   MOON
+===================== */
+
+.moon{
+
+    position:fixed;
+
+    top:60px;
+    right:60px;
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    background:#fffce8;
+
+    box-shadow:
+
+    0 0 40px white,
+
+    0 0 90px #fff8c4,
+
+    0 0 150px rgba(255,255,220,.8);
+
+    z-index:3;
+
+}
+
+.moon::after{
+
+content:"";
+
+position:absolute;
+
+top:15px;
+left:25px;
+
+width:20px;
+height:20px;
+
+border-radius:50%;
+
+background:#ece7d5;
+
+opacity:.5;
+
+box-shadow:
+
+30px 20px #ece7d5,
+
+45px 55px #ece7d5,
+
+10px 60px #ece7d5;
+
+}
+
+/* =====================
+   CLOUDS
+===================== */
+
+.cloud{
+
+position:fixed;
+
+background:rgba(255,255,255,.08);
+
+filter:blur(25px);
+
+border-radius:100px;
+
+z-index:2;
+
+animation:cloudMove linear infinite;
+
+}
+
+.cloud1{
+
+width:280px;
+
+height:70px;
+
+top:120px;
+
+left:-350px;
+
+animation-duration:65s;
+
+}
+
+.cloud2{
+
+width:200px;
+
+height:60px;
+
+top:250px;
+
+left:-250px;
+
+animation-duration:90s;
+
+}
+
+.cloud3{
+
+width:340px;
+
+height:80px;
+
+top:420px;
+
+left:-380px;
+
+animation-duration:110s;
+
+}
+
+@keyframes cloudMove{
+
+from{
+
+transform:translateX(0);
+
+}
+
+to{
+
+transform:translateX(1900px);
+
+}
+
+}
+
+/* =====================
+   INTRO
+===================== */
+
+#intro{
+
+position:fixed;
+
+inset:0;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+gap:30px;
+
+z-index:20;
+
+transition:1.5s;
+
+}
+
+.star{
+
+font-size:65px;
+
+text-shadow:
+
+0 0 20px white,
+
+0 0 40px #ffd4f5,
+
+0 0 80px hotpink;
+
+animation:pulse 2s infinite;
+
+}
+
+#introText{
+
+font-size:28px;
+
+font-weight:700;
+
+text-align:center;
+
+min-height:45px;
+
+text-shadow:
+
+0 0 15px white,
+
+0 0 30px hotpink;
+
+}
+
+/* =====================
+   MAIN
+===================== */
+
+#main{
+
+position:fixed;
+
+inset:0;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+padding:20px;
+
+z-index:10;
+
+opacity:0;
+
+transform:scale(.95);
+
+transition:2s;
+
+}
+
+/* =====================
+   NAME
+===================== */
+
+#name{
+
+font-size:72px;
+
+font-weight:900;
+
+letter-spacing:3px;
+
+text-shadow:
+
+0 0 10px white,
+
+0 0 30px hotpink,
+
+0 0 70px deeppink,
+
+0 0 120px deeppink;
+
+animation:glow 2s infinite alternate;
+
+}
+
+/* =====================
+   LINE
+===================== */
+
+.line{
+
+margin:20px 0;
+
+width:180px;
+
+height:4px;
+
+border-radius:50px;
+
+background:
+
+linear-gradient(to right,
+
+transparent,
+
+hotpink,
+
+white,
+
+hotpink,
+
+transparent);
+
+box-shadow:0 0 20px hotpink;
+
+}
+
+/* =====================
+   MESSAGE
+===================== */
+
+#message{
+
+width:min(700px,90vw);
+
+text-align:center;
+
+line-height:2;
+
+font-size:22px;
+
+min-height:170px;
+
+text-shadow:0 0 12px hotpink;
+
+}
+
+/* =====================
+   HEART
+===================== */
+
+#heart{
+
+margin-top:35px;
+
+width:90px;
+
+height:90px;
+
+border:none;
+
+border-radius:50%;
+
+font-size:40px;
+
+cursor:pointer;
+
+background:
+
+linear-gradient(135deg,#ff5fa2,#ff0066);
+
+box-shadow:
+
+0 0 20px hotpink,
+
+0 0 60px deeppink;
+
+animation:heartBeat 1.2s infinite;
+
+transition:.3s;
+
+}
+
+#heart:hover{
+
+transform:scale(1.15);
+
+}
+
+/* =====================
+   FLASH
+===================== */
+
+#flash{
+
+position:fixed;
+
+inset:0;
+
+background:white;
+
+opacity:0;
+
+pointer-events:none;
+
+z-index:999;
+
+transition:.3s;
+
+}
+
+/* =====================
+   ANIMATIONS
+===================== */
+
+@keyframes glow{
+
+from{
+
+text-shadow:
+
+0 0 15px white,
+
+0 0 35px hotpink;
+
+}
+
+to{
+
+text-shadow:
+
+0 0 30px white,
+
+0 0 60px deeppink,
+
+0 0 120px deeppink;
+
+}
+
+}
+
+@keyframes pulse{
+
+0%{
+
+transform:scale(.8);
+
+opacity:.5;
+
+}
+
+50%{
+
+transform:scale(1.2);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:scale(.8);
+
+opacity:.5;
+
+}
+
+}
+
+@keyframes heartBeat{
+
+0%{transform:scale(1);}
+25%{transform:scale(1.08);}
+50%{transform:scale(.95);}
+75%{transform:scale(1.12);}
+100%{transform:scale(1);}
+
+}
+
+/* =====================
+   MOBILE
+===================== */
+
+@media(max-width:720px){
+
+.moon{
+
+width:85px;
+height:85px;
+
+top:30px;
+right:25px;
+
+}
+
+#name{
+
+font-size:48px;
+
+}
+
+#message{
+
+font-size:18px;
+
+}
+
+#heart{
+
+width:75px;
+height:75px;
+
+font-size:34px;
+
+}
+
+}
+/* Gift Button */
+
+#giftBtn{
+
+margin-top:25px;
+
+padding:14px 25px;
+
+border:none;
+
+border-radius:40px;
+
+font-size:20px;
+
+font-family:'Cairo',sans-serif;
+
+background:linear-gradient(45deg,#ff4d88,#ff80aa);
+
+color:white;
+
+cursor:pointer;
+
+display:none;
+
+box-shadow:0 0 25px hotpink;
+
+animation:giftGlow 2s infinite;
+
+}
+
+@keyframes giftGlow{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.08);
+
+box-shadow:0 0 40px deeppink;
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+#game{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1000;
+
+    text-align: center;
+
+    background: rgba(20,20,40,.75);
+    backdrop-filter: blur(10px);
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    width: 320px;
+
+    box-shadow: 0 0 25px hotpink;
+}
+
+#miniHeart{
+    width: 90px;
+    height: 90px;
+
+    border: none;
+    border-radius: 50%;
+
+    font-size: 40px;
+
+    cursor: pointer;
+
+    margin: 20px 0;
+
+    background: #ff2f7a;
+    color: white;
+
+    z-index: 1001;
+}
+
+#score{
+    font-size: 28px;
+    font-weight: bold;
+}
+/* ==========================
+   MAGIC RING
+========================== */
+
+#magicRing{
+
+position:fixed;
+
+left:50%;
+
+bottom:-220px;
+
+transform:translateX(-50%);
+
+width:120px;
+
+height:120px;
+
+border-radius:50%;
+
+border:12px solid gold;
+
+box-shadow:
+
+0 0 20px gold,
+
+0 0 60px rgba(255,215,0,.8),
+
+0 0 120px rgba(255,215,0,.4);
+
+transition:2s;
+
+z-index:999;
+
+cursor:pointer;
+
+animation:ringRotate 6s linear infinite;
+
+}
+
+#magicRing.show{
+
+bottom:90px;
+
+}
+
+.diamond{
+
+position:absolute;
+
+left:50%;
+
+top:-45px;
+
+transform:translateX(-50%) rotate(45deg);
+
+width:42px;
+
+height:42px;
+
+background:white;
+
+box-shadow:
+
+0 0 20px white,
+
+0 0 40px cyan,
+
+0 0 80px white;
+
+animation:diamondGlow 1.5s infinite alternate;
+
+}
+
+@keyframes ringRotate{
+
+from{
+
+transform:translateX(-50%) rotateY(0deg);
+
+}
+
+to{
+
+transform:translateX(-50%) rotateY(360deg);
+
+}
+
+}
+
+@keyframes diamondGlow{
+
+from{
+
+box-shadow:
+
+0 0 10px white,
+
+0 0 25px cyan;
+
+}
+
+to{
+
+box-shadow:
+
+0 0 35px white,
+
+0 0 70px cyan,
+
+0 0 120px white;
+
+}
+
+}
